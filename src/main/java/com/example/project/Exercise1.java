@@ -15,7 +15,7 @@ public class Exercise1 {
 	}
 
 	public String convertirBaseGabriel(int a) {
-		int aux = 0, decimal = 0, dig, k = 0, exp = 0;
+		int aux = 0, decimal = 0, dig, k = 0, k2 = 0, exp = 0;
 	     aux = a;
          while (aux != 0) {
                     dig = aux % 10;
@@ -33,12 +33,19 @@ public class Exercise1 {
 	     aux = a;
          while (aux != 0) {
                    dig = aux % 10;                  
+                   if (exp == 0 && dig != 0) {
+   					k2++;
+                   }
+                   if (exp == 1 && dig == 2) {
+   					k2++;
+                   }
                    decimal = decimal + (dig * (int) Math.pow(2, exp)-1);
                    exp++;
-                   aux = aux / 10;
+                   aux = aux / 10;      
          }
-         
+         if (k2>=2) {
+        	 return "El numero proporcionado no esta en base Gabriel.";
+		}
 		return String.valueOf(decimal);
 	}
-        }
 }
