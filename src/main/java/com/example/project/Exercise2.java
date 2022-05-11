@@ -21,8 +21,19 @@ public class Exercise2 {
 	}
 
 	public Integer getMenorNumeroSaltos(int a []) {
-
-		// TO DO
-		return -1;
+		int conejo = 50, saltos = 0, aux=0;
+		for (int i = 0; i < a.length; i++) {
+			if (conejo>=(a[i+1]-a[i])){
+				aux =  aux + (a[i+1]-a[i]);
+				if (aux>=conejo){
+					saltos++;
+					i--;
+					aux = 0;
+				}
+			}else {
+				return -1;
+			}
+		}
+		return (saltos+1);
 	}
 }
